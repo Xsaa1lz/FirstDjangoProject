@@ -1,13 +1,15 @@
-FROM python:3.9-slim
+FROM python:3.12-slim
 
 ENV PYTHONNUNBUFFERED=1
 
 WORKDIR /app
 
+RUN pip install --upgrade pip "poetry==2.1.2"
+RUN poetry config virtualenvs.create false --local
+
 COPY pyproject.toml poetry.lock ./
+RUN poetry install --no-root
 
-RUN pip install poetry && poetry install --no-interaction --no-ansi
-
-COPY . .
+COPY mysite .
 
 CMD ["gunicorn", "mysite.wsgi:application", "--bind", "0.0.0.0:8000"]
