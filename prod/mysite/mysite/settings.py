@@ -176,7 +176,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = reverse_lazy("myauth:about-me")
 LOGIN_URL = reverse_lazy("myauth:login")
 
-LOGLEVEL = getenv("DJANGO_LOGLEVEL", "info").upper
+LOGLEVEL = getenv("DJANGO_LOGLEVEL", "info").upper()
 
 logging.config.dictConfig({
     "version": 1,
