@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import logging.config
+import os
 from os import getenv
 from pathlib import Path
 
@@ -176,7 +177,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = reverse_lazy("myauth:about-me")
 LOGIN_URL = reverse_lazy("myauth:login")
 
-LOGLEVEL = getenv("DJANGO_LOGLEVEL", "info").upper()
+LOGLEVEL = os.getenv("LOGLEVEL", "INFO").upper()
 
 logging.config.dictConfig({
     "version": 1,
