@@ -36,6 +36,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "0.0.0.0",
+    "89.223.70.236"
 ]
 
 INTERNAL_IPS = [
@@ -178,10 +179,7 @@ LOGIN_REDIRECT_URL = reverse_lazy("myauth:about-me")
 LOGIN_URL = reverse_lazy("myauth:login")
 
 LOGLEVEL = (os.getenv("LOGLEVEL", "INFO") or "INFO").upper()
-if isinstance(LOGLEVEL, str):
-    LOGLEVEL = LOGLEVEL.upper()
-else:
-    LOGLEVEL = "INFO"
+
 
 logging.config.dictConfig({
     "version": 1,
